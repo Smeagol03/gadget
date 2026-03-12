@@ -96,7 +96,7 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const waNumber = "6281234567890"; 
+  const waNumber = "6281547190395"; 
   const handleOrderWA = (product) => {
     const message = `Halo, saya ingin bertanya tentang ${product.name} (Kode: ${product.slug}). Bisa berikan info stoknya?`;
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank');
