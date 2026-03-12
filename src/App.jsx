@@ -4,7 +4,8 @@ import { Globe, Smartphone, Laptop, Headphones, Watch, Monitor } from 'lucide-re
 // Components
 import { Navbar, MobileMenu } from './components/Navigation';
 import { Hero, CategoryBar, ProductCard } from './components/Content';
-import { FeaturedSection, PhilosophyBanner, Footer } from './components/Sections';
+import { FeaturedSection, PhilosophyBanner, Footer, HelpSection, ContactCenter } from './components/Sections';
+import { TechLabel, Button } from './components/UI';
 
 // --- DATA KATALOG ---
 const products = [
@@ -114,29 +115,65 @@ export default function App() {
 
       <main>
         <Hero />
-        
-        <CategoryBar 
-          categories={categories} 
-          activeCategory={activeCategory} 
-          setActiveCategory={setActiveCategory} 
-        />
 
-        <section className="py-24 bg-white relative">
+        {/* Toko Section */}
+        <section id="toko" className="py-24 bg-white relative scroll-mt-24">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="text-center mb-16">
+              <TechLabel className="mb-4">/katalog_produk</TechLabel>
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Produk Terbaru</h2>
+              <p className="text-lg text-gray-500 max-w-2xl mx-auto">Jelajahi rangkaian perangkat teknologi paling canggih dengan desain elegan dan performa maksimal.</p>
+            </div>
+
+            <CategoryBar
+              categories={categories}
+              activeCategory={activeCategory}
+              setActiveCategory={setActiveCategory}
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
                {filteredProducts.map(product => (
-                 <ProductCard 
-                   key={product.id} 
-                   product={product} 
-                   onOrder={() => handleOrderWA(product)} 
+                 <ProductCard
+                   key={product.id}
+                   product={product}
+                   onOrder={() => handleOrderWA(product)}
                  />
                ))}
             </div>
           </div>
         </section>
 
+        {/* Katalog Section - Full Grid */}
+        <section id="katalog" className="py-32 bg-gray-50/50 scroll-mt-24">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="text-center mb-16">
+              <TechLabel className="mb-4">/semua_produk</TechLabel>
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Katalog Lengkap</h2>
+              <p className="text-lg text-gray-500 max-w-2xl mx-auto">Semua produk Tech.Core dalam satu tempat. Filter berdasarkan kategori untuk menemukan yang Anda butuhkan.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+               {products.map((product, idx) => (
+                 <ProductCard
+                   key={product.id}
+                   product={product}
+                   onOrder={() => handleOrderWA(product)}
+                 />
+               ))}
+            </div>
+
+            <div className="text-center mt-16">
+              <Button variant="outline" className="px-12 py-5 mx-auto">
+                Lihat Lebih Banyak
+              </Button>
+            </div>
+          </div>
+        </section>
+
         <FeaturedSection onOrder={(name) => handleOrderWA(products.find(p => p.name === name))} />
         <PhilosophyBanner />
+        <HelpSection />
+        <ContactCenter />
       </main>
 
       <Footer />

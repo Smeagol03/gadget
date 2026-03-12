@@ -9,9 +9,18 @@ export const Navbar = ({ scrolled, onOpenMenu }) => (
       </div>
 
       <div className="hidden md:flex items-center gap-10">
-        {["Toko", "Bantuan", "Laboratorium", "Pusat"].map(item => (
-          <a key={item} href="#" className="text-sm font-bold text-gray-400 hover:text-black transition-colors tech-mono lowercase">
-            //{item}
+        {[
+          { label: "Toko", href: "#toko" },
+          { label: "Bantuan", href: "#bantuan" },
+          { label: "Katalog", href: "#katalog" },
+          { label: "Pusat", href: "#pusat" }
+        ].map(item => (
+          <a 
+            key={item.label} 
+            href={item.href} 
+            className="text-sm font-bold text-gray-400 hover:text-black transition-colors tech-mono lowercase"
+          >
+            //{item.label}
           </a>
         ))}
       </div>
@@ -34,11 +43,21 @@ export const MobileMenu = ({ isOpen, onClose }) => (
       <span className="text-2xl font-extrabold tracking-tighter">TECH.CORE</span>
       <button onClick={onClose} className="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center hover:bg-black hover:text-white transition-all"><X size={24} /></button>
     </div>
-    <div className="flex flex-col grow justify-center p-12 gap-10">
-      {["Toko", "Bantuan", "Produk Baru", "Tentang Kami"].map((item) => (
-        <a key={item} href="#" className="text-6xl font-extrabold hover:text-blue-600 transition-colors flex items-center justify-between group tracking-tighter">
-          {item}
-          <ArrowRight size={40} className="opacity-0 -translate-x-10 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
+    <div className="flex flex-col grow justify-center p-8 md:p-12 gap-6">
+      {[
+        { label: "Toko", href: "#toko" },
+        { label: "Bantuan", href: "#bantuan" },
+        { label: "Katalog", href: "#katalog" },
+        { label: "Pusat", href: "#pusat" }
+      ].map((item) => (
+        <a 
+          key={item.label} 
+          href={item.href}
+          onClick={onClose}
+          className="text-4xl font-extrabold hover:text-blue-600 transition-colors flex items-center justify-between group tracking-tighter border-b border-gray-50 pb-4"
+        >
+          {item.label}
+          <ArrowRight size={28} className="opacity-0 -translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
         </a>
       ))}
     </div>
