@@ -1,82 +1,66 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@100;200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;600;800;900&display=swap");
 
 :root {
-  --swiss-white: #fcfcfc;
-  --swiss-black: #0a0a0a;
-  --swiss-gray-100: #f5f5f7;
-  --swiss-gray-200: #e5e5e7;
-  --swiss-gray-800: #1d1d1f;
-  --swiss-accent: #ff3b30; /* Classic Swiss Red */
-  --font-main:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-accent: "Outfit", sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  --bg-main: #ffffff;
+  --bg-sub: #f8f9fa;
+  --text-main: #0a0a0a;
+  --text-sub: #666666;
+  --accent: #2563eb; /* Tech Blue */
+  --border: #e5e7eb;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-hero: "Unbounded", sans-serif;
+  --font-body: "Sora", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 body {
-  background-color: var(--swiss-white);
-  color: var(--swiss-black);
-  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-accent);
-  text-transform: uppercase;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+}
+
+.tech-mono {
+  font-family: var(--font-mono);
   letter-spacing: -0.02em;
 }
 
 .glass {
-  background: rgba(252, 252, 252, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.grid-line {
-  border-right: 1px solid var(--swiss-gray-200);
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.grid-line-b {
-  border-bottom: 1px solid var(--swiss-gray-200);
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-::selection {
-  background-color: var(--swiss-accent);
-  color: white;
-}
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* Custom Scrollbar for Tech Look */
+::-webkit-scrollbar {
+  width: 6px;
 }
-
-.animate-slide-up {
-  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
-
-.stagger-1 {
-  animation-delay: 0.1s;
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
 }
-.stagger-2 {
-  animation-delay: 0.2s;
-}
-.stagger-3 {
-  animation-delay: 0.3s;
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
 }
