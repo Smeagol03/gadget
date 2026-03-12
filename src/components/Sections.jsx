@@ -125,7 +125,7 @@ export const HelpSection = () => {
 };
 
 export const ContactCenter = () => (
-  <section id="pusat" className="py-32 px-6 md:px-12 bg-gradient-to-br from-gray-50 to-blue-50/30">
+  <section id="pusat" className="py-32 px-6 md:px-12 bg-linear-to-br from-gray-50 to-blue-50/30">
     <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div>
@@ -165,7 +165,7 @@ export const ContactCenter = () => (
         </div>
 
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-[40px] blur-3xl"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-blue-200/30 to-purple-200/30 rounded-[40px] blur-3xl"></div>
           <div className="relative grid grid-cols-2 gap-4">
             <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600" alt="Office" className="rounded-3xl object-cover h-64 w-full shadow-2xl" />
             <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=600" alt="Team" className="rounded-3xl object-cover h-64 w-full shadow-2xl translate-y-8" />
